@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :birthday, presence: true
   validates :password, presence: true
   validates :university, presence: true
-  validates :nationalty, presence: true
+  validates :national, presence: true
 end
 
 
