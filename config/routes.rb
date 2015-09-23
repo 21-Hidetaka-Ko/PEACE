@@ -1,6 +1,5 @@
 PEACE::Application.routes.draw do
   resources :users
-  get "users/new"
   get '/home/top' =>'home#top'
   match '/signup',  to: 'users#new',            via: 'get'
 

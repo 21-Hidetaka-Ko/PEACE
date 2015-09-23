@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password
       t.text :university
       t.string :national
+      t.string :city
 
       t.timestamps
     end
