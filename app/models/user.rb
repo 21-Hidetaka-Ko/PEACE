@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   validates :sex, presence: true
   validates :major, presence: true
   validates :birthday, presence: true
-  validates :password, presence: true
   validates :university, presence: true
   validates :national, presence: true
   has_secure_password

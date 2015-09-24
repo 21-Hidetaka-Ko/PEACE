@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20150923072858) do
     t.integer  "sex"
     t.text     "major"
     t.date     "birthday"
-    t.string   "password"
     t.text     "university"
     t.string   "national"
     t.datetime "created_at"
