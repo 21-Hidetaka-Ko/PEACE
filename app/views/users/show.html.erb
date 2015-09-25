@@ -1,47 +1,48 @@
-<% provide(:title, @user.name) %>
-<h1><%= @user.name %></h1>
 
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @user.sex %>
-</p>
+<p id="notice" class="alert alert-success"><%= notice %></p>
 
-<p>
-  <strong>Major:</strong>
-  <%= @user.major %>
-</p>
+<aside class="sidebar">
+  <section>
+    <span class="label">ユーザー</span>
+    <h3 class="user-info"><%= @user.name %></h3>
+  </section>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @user.birthday %>
-</p>
+  <section>
+    <span class="label">メールアドレス</span>
+    <h3 class="user-info"><%= @user.email %></h3>
+  </section>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+  <section>
+    <span class="label">専攻</span>
+    <h3 class="user-info"><%= @user.major %></h3>
+  </section>
 
-<p>
-  <strong>University:</strong>
-  <%= @user.university %>
-</p>
+  <section>
+    <span class="label">birthday</span>
+    <h3 class="user-info"><%= @user.birthday %></h3>
+  </section>
 
-<p>
-  <strong>National:</strong>
-  <%= @user.national %>
-</p>
+  <section>
+    <span class="label">University</span>
+    <h3 class="user-info"><%= @user.university %></h3>
+  </section>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <section>
+    <span class="label">National</span>
+    <h3 class="user-info"><%= @user.national %></h3>
+  </section>
+
+  <section>
+    <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
+  </section>
+
+
+  <br>
+</aside>
+
+<ul class="notes">
+  <%= render @notes %>
+</ul>

@@ -1,0 +1,25 @@
+<%= form_for (@note) do |f| %>
+  <% if @note.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= @note.errors.count %>件のエラー:</h2>
+
+      <ul>
+        <% @note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  ユーザーID
+  <%= f.collection_select :user_id, User.all, :id, :id, {prompt: true}, {class: "form-control user-id-field"} %>
+
+  画像
+  <%= f.file_filed :image, { class: "form-control image-field" } %>
+  内容
+  <%= f.text_area :content, { class: "form-control content-field" } %>
+  <%= f.submit "保存", { class: "btn primary-btn" } %>
+<% end %>
+    
+      
