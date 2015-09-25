@@ -1,5 +1,6 @@
 
 <li>
+<%= image_for(note.user) %>
   <span class="user-name">
     <%= note.user.name %>
   </span>
@@ -7,3 +8,4 @@
     <li><%= link_to note.image, note_path(note.id) %></li>
   </span>
 </li>
+

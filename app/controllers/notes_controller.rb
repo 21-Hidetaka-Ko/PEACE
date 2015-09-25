@@ -16,12 +16,12 @@ class NotesController < ApplicationController
 
 
   def create
-    @user = User.new(user_params)
+    @note = Note.new(note_params)
     file = params[:note][:image]
-    @user.set_image(file)
+    @note.set_image(file)
 
-    if @user.save
-      redirect_to @user, notice: 'ユーザーが保存されました'
+    if @note.save
+      redirect_to @note, notice: 'ユーザーが保存されました'
     else
       render :new
     end
@@ -34,10 +34,10 @@ class NotesController < ApplicationController
 
   def update
     file = params[:note][:image]
-    @user.set_image(file)
+    @note.set_image(file)
 
-    if @user.update(user_params)
-      redirect_to @user, notice: 'ユーザー情報が更新されました'
+    if @note.update(note_params)
+      redirect_to @note, notice: 'ユーザー情報が更新されました'
     else
       render :edit
     end
