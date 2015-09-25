@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <div class="alert alert-danger">
+       <p><%= @user.errors.count %>件のエラーがあります。</p>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -11,39 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_area :email %>
-  </div>
-  <div class="field">
-    <%= f.label :sex %><br>
-    <%= f.number_field :sex %>
-  </div>
-  <div class="field">
-    <%= f.label :major %><br>
-    <%= f.text_area :major %>
-  </div>
-  <div class="field">
-    <%= f.label :birthday %><br>
-    <%= f.date_select :birthday %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :university %><br>
-    <%= f.text_area :university %>
-  </div>
-  <div class="field">
-    <%= f.label :national %><br>
-    <%= f.text_field :national %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  名前
+  <%= f.text_field :name, class: "form-control name-field" %>
+
+  メールアドレス
+  <%= f.text_field :email, class: "form-control email-field" %>
+
+  性別
+  <%= f.text_field :sex, class: "form-control sex-field" %>
+
+  専攻
+  <%= f.text_field :major, class: "form-control major-field" %>
+
+  University   
+  <%= f.text_field :university, class: "form-control university-field" %>
+
+  national
+  <%= f.text_field :national, class: "form-control national-field" %>
+
+  password
+  <%= f.text_field :password, class: "form-control password-field" %>
+
+
+  <%= f.submit '保存', class: "btn primary-btn" %>
 <% end %>
+
+
+
+
+
+
+
+
+  

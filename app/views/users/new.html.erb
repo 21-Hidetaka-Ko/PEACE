@@ -1,47 +1,6 @@
+<h1>新規ユーザー作成</h1>
 
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<%= render 'form' %>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-    <%= render 'shared/error_messages' %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :sex %>
-      <%= f.number_field :sex %>
-
-      <%= f.label :major %>
-      <%= f.text_field :major %>
-
-      <%= f.label :birthday %>
-      <%= f.date_field :birthday %>
-
-      <%= f.label :university %>
-      <%= f.text_field :university %>
-
-      <%= f.label :national %>
-      <%= f.text_field :national %>
-
-      
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
-</div>
-
-      
-      
-    
+<%= link_to '戻る', users_path %>
       
