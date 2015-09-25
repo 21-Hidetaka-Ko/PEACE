@@ -52,5 +52,4 @@ class NotesController < ApplicationController
     def note_params
       params.require(:note).permit(:image, :content, :user_id)
     end
-
 end

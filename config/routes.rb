@@ -1,9 +1,16 @@
 PEACE::Application.routes.draw do
+  get "notes/new"
+  post '/notes' => 'notes#create'
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+
   resources :notes
   
-  get '/home/top' =>'home#top'
+  
+
+  root 'home#top'
+
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
