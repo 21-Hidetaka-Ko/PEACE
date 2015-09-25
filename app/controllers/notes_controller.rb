@@ -16,9 +16,12 @@ class NotesController < ApplicationController
 
 
   def create
-    @note = Note.new(note_params)
-    if @note.save
-      redirect_to @note
+    @user = User.new(user_params)
+    file = params[:note][:image]
+    @user.set_image(file)
+
+    if @user.save
+      redirect_to @user, notice: 'ユーザーが保存されました'
     else
       render :new
     end
@@ -30,8 +33,11 @@ class NotesController < ApplicationController
   end
 
   def update
-    if @note.update(note_params)
-      redirect_to @note, notice: "投稿が更新されました"
+    file = params[:note][:image]
+    @user.set_image(file)
+
+    if @user.update(user_params)
+      redirect_to @user, notice: 'ユーザー情報が更新されました'
     else
       render :edit
     end
@@ -50,6 +56,6 @@ class NotesController < ApplicationController
 
 
     def note_params
-      params.require(:note).permit(:image, :content, :user_id)
+      params.require(:note).permit(:content, :user_id)
     end
 end

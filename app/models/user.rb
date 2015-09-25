@@ -26,6 +26,14 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def set_image(file)
+    if !file.nil?
+      file_name = file.original_filename
+      File.open("public/user_images/#{file_name}", 'wb'){|f| f.write(file.read)}
+      self.image = file_name
+    end
+  end
+
   private
 
     def create_remember_token
