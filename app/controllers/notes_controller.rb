@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: [:show, :edit, :update, :destroy, :liking_users]
 
   def index
     @notes = Note.all
@@ -16,14 +16,12 @@ class NotesController < ApplicationController
 
 
   def create
-    @note = Note.new(note_params)
-    file = params[:note][:image]
-    @note.set_image(file)
-
+    @note = current_user.notes.build(note_params)
     if @note.save
-      redirect_to @note, notice: 'ユーザーが保存されました'
+      redirect_to @note, notice: "投稿が保存されました"
     else
-      render :new
+      @notes = Note.all.order(created_at: :desc)
+      render 'home/top'
     end
   end
 
@@ -46,6 +44,10 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     redirect_to notes_path
+  end
+
+  def liking_users
+    @users = @note.liking_users
   end
 
   private

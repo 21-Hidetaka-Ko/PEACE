@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  has_many :notes
+  has_many :likes
+  has_many :like_notes, through: :likes, source: :note
   
   validates :sex, presence: true
   validates :major, presence: true

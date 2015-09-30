@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :like_notes]
+
 
   # GET /users
   # GET /users.json
@@ -12,6 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @notes = @user.notes
+    @content = "投稿一覧"
   end
 
 
@@ -51,13 +55,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def like_notes
+    @notes = @user.like_notes
+    @content = "いいね！一覧"
+    render :show
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      redirect_to users_url, notice: 'ユーザーが削除されました'
-  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,11 +1,17 @@
-
-<li>
-<%= image_for(note.user) %>
+<li>  
+  <%= image_for(note.user) %>
   <span class="user-name">
     <%= note.user.name %>
   </span>
   <span class="content">
-    <li><%= link_to note.image, note_path(note.id) %></li>
+    <%= link_to note.title, note_path(note.id) %>
+
+    <div>
+      <small>
+        <%= note.likes.count %>人がいいね！といっています
+      </small>
+    </div>
+
   </span>
 </li>
 
