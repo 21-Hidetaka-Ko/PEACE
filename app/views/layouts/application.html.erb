@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gatebook</title>
+  <title>PEACE</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -13,7 +13,7 @@
 <body>
   <header class="navbar">
     <div class="container">
-      <div id="logo"><%= link_to "Gatebook", root_path %></div>
+      <div id="logo"><%= link_to "PEACE", root_path %></div>
       <% if user_signed_in? %>
         <ul class="header-right">
           <li><%= link_to "ユーザー一覧", users_path %></li>
@@ -22,7 +22,6 @@
         </ul>
       <% else %>
         <ul class="header-right">
-          <li><%= link_to "概要", about_path %></li>
           <li><%= link_to "新規登録", new_user_registration_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>
         </ul>
@@ -39,7 +38,7 @@
   <div class="container">
     <footer class="footer">
       <div class="small">
-        &copy; 2015 Progate, Inc.
+        &copy; 2015 PEACE, Inc.
       </div>
     </footer>
   </div>

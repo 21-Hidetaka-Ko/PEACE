@@ -1,6 +1,4 @@
 PEACE::Application.routes.draw do
-  get "notes/new"
-  post '/notes' => 'notes#create'
   
   devise_for :users
 
@@ -10,7 +8,7 @@ PEACE::Application.routes.draw do
     end
   end
 
-  resources :notes, only: [:show, :create, :edit, :update, :destroy] do
+  resources :notes do
     member do
       get :liking_users
     end
@@ -22,9 +20,9 @@ PEACE::Application.routes.draw do
 
   root 'home#top'
 
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  # match '/signup',  to: 'users#new',            via: 'get'
+  # match '/signin',  to: 'sessions#new',         via: 'get'
+  # match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

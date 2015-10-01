@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001012010) do
+ActiveRecord::Schema.define(version: 20151001045734) do
 
   create_table "likes", force: true do |t|
     t.integer  "user_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151001012010) do
     t.string   "password"
     t.text     "university"
     t.string   "national"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
