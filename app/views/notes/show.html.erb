@@ -4,18 +4,14 @@
 <p><%= @note.content %></p>
 
 
-<div>
-  <% if current_user.likes.find_by(note_id: @note.id) %>
-    <%= link_to 'いいね！を取り消す', unlike_path(@note.id), method: :delete %>
-  <% else %>
-    <%= link_to 'いいね！', like_path(@note.id), method: :post %>
-  <% end %>
+<div id="like-link">
+  <%= render "likes/like_links", note: @note %>
 </div>
 
 
 <div>
   <small>
-    <%= link_to @note.likes.count, liking_users_note_path(@note.id) %>人がいいね！といっています
+    <%= link_to @note.likes.count, liking_users_note_path(@note.id), id: "like-count" %>人がいいね！といっています
   </small>
 </div>
 

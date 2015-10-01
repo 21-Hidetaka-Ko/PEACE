@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_note, only: [:show, :edit, :update, :destroy, :liking_users]
 
   def index
@@ -17,10 +18,12 @@ class NotesController < ApplicationController
 
   def create
     @note = current_user.notes.build(note_params)
+    file = params[:note][:image]
+    @note.set_image(file)
     if @note.save
       redirect_to @note, notice: "投稿が保存されました"
     else
-      @notes = Note.all.order(created_at: :desc)
+      @notes = Note.order(created_at: :desc)
       render 'home/top'
     end
   end
