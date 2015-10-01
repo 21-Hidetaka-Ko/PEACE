@@ -20,5 +20,5 @@ def set_image(file)
 
 end
 
-end
+
 

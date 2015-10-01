@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  has_secure_password
+  # has_secure_password
   has_many :notes
   has_many :likes
   has_many :like_notes, through: :likes, source: :note
