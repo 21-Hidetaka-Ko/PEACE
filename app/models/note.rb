@@ -1,6 +1,8 @@
 class Note < ActiveRecord::Base
-
   belongs_to :user
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
+  
   validates :image, presence: true
   validates :content, presence: true
   validates :user_id, presence: true
@@ -17,3 +19,6 @@ def set_image(file)
 
 
 end
+
+end
+

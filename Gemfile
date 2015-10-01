@@ -12,6 +12,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'hirb', '0.7.3'
+gem 'devise', '3.5.1'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

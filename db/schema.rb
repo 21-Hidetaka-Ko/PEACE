@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925122440) do
+ActiveRecord::Schema.define(version: 20151001045734) do
+
+  create_table "likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "note_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notes", force: true do |t|
     t.text     "content"
@@ -30,10 +37,13 @@ ActiveRecord::Schema.define(version: 20150925122440) do
     t.string   "password"
     t.text     "university"
     t.string   "national"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "encrypted_password",  default: "", null: false
+    t.datetime "remember_created_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
