@@ -80,11 +80,12 @@ private
     email = auth.info.email
     email = "#{auth.provider}-#{auth.uid}@example.com" if email.blank?
     email
+  end
 
 
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end
-end
+
 
 
