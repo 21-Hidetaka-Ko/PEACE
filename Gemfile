@@ -13,6 +13,9 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'sqlite3'
 gem 'hirb', '0.7.3'
 gem 'devise', '3.5.1'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 
 
 # Use SCSS for stylesheets

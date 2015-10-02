@@ -1,8 +1,13 @@
 PEACE::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users, :controllers => {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 
-  resources :users, only: [:index, :show, :edit, :update] do
+
+  resources :users, only: [:index, :show, :edit, :update, :create, :new] do
     member do
       get :like_notes
     end

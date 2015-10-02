@@ -12,6 +12,21 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    file = params[:user][:image]
+    @user.set_image(file)
+
+    if @user.save
+      redirect_to @user, notice: 'ユーザーが保存されました'
+    else
+      render :new
+    end
+  end
 
   def show
     @notes = @user.notes
