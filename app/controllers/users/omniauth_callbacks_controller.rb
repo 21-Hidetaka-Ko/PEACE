@@ -5,7 +5,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
     def callback_from(provider)
-      logger.debug "OK"
       provider = provider.to_s
       @user = User.find_for_oauth(request.env['omniauth.auth'])
       if @user.persisted?

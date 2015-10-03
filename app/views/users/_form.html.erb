@@ -11,29 +11,31 @@
     </div>
   <% end %>
 
-  名前
-  <%= f.text_field :name, class: "form-control name-field" %>
+名前
+<%= f.text_field :name, class: "form-control name-field" %>
 
-  メールアドレス
-  <%= f.text_field :email, class: "form-control email-field" %>
+メールアドレス
+<%= f.text_field :email, class: "form-control email-field" %>
 
-  性別
-  <%= f.text_field :sex, class: "form-control sex-field" %>
+出身国  
+<%= f.text_field :national, class: "form-control national-field" %>
 
-  専攻
-  <%= f.text_field :major, class: "form-control major-field" %>
+大学  
+<%= f.text_field :university, class: "form-control university-field" %>
 
-  University   
-  <%= f.text_field :university, class: "form-control university-field" %>
+留学先の国   
+<%= f.text_field :to_national, class: "form-control university-field" %>
 
-  national
-  <%= f.text_field :national, class: "form-control national-field" %>
+留学先の大学   
+<%= f.text_field :to_university, class: "form-control university-field" %>
 
-  password
-  <%= f.text_field :password, class: "form-control password-field" %>
+専攻
+<%= f.text_field :major, class: "form-control major-field" %>
 
+password
+<%= f.text_field :password, class: "form-control password-field" %>
 
-  <%= f.submit '保存', class: "btn primary-btn" %>
+<%= f.submit '保存', class: "btn primary-btn" %>
 <% end %>
 
 

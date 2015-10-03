@@ -17,11 +17,11 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :like_notes, through: :likes, source: :note
   
-  validates :sex, presence: true
-  validates :major, presence: true
-  validates :birthday, presence: true
-  validates :university, presence: true
   validates :national, presence: true
+  validates :university, presence: true
+  validates :to_national, presence: true
+  validates :to_university, presence: true
+  validates :major, presence: true
   #has_secure_password
   validates :password, length: { minimum: 6 }
 
