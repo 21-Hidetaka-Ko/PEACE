@@ -11,10 +11,6 @@
     </div>
   <% end %>
 
-
-  ユーザーID
-  <%= f.collection_select :user_id, User.all, :id, :id, {prompt: true}, {class: "form-control user-id-field"} %>
-
   画像
   <%= f.file_field :image, { class: "form-control image-field" } %>
   内容

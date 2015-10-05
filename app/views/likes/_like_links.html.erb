@@ -1,3 +1,4 @@
+<% if current_user %>
 <% if current_user.likes.find_by(note_id: note.id) %>
   <%= link_to 'いいね！を取り消す', unlike_path(@note.id), method: :delete, remote: true %>
 <% else %>

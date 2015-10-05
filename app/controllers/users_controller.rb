@@ -75,4 +75,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :national, :university, :to_national, :to_university, :major, :password, :password_confirmation, :university, :national)
     end
+
+    def correct_user
+      user = User.find(params[:id])
+      if !current_user?(user)
+        redirect_to root_path, alert: '許可されていないページです'
+      end
+    end
+
 end
