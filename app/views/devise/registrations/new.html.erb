@@ -17,29 +17,28 @@
   </div>
 
   <div class="field">
-    <%= f.label '性別' %><br />
-    <%= f.text_field :sex, autofocus: true, class: "form-control" %>
+    <%= f.label '出身国' %><br />
+    <%= f.text_field :national, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label '大学' %><br />
+    <%= f.text_field :university, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label '留学先の国' %><br />
+    <%= f.text_field :to_national, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label '留学先の大学' %><br />
+    <%= f.text_field :to_university, autofocus: true, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label '専攻' %><br />
     <%= f.text_field :major, class: "form-control" %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label 'University   ' %><br />
-    <%= f.text_field :university, autofocus: true, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'national' %><br />
-    <%= f.text_field :national, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'birthday' %><br />
-    <%= f.text_field :birthday, autofocus: true, class: "form-control" %>
   </div>
 
   <div class="field">

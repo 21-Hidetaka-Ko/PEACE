@@ -16,7 +16,3 @@
 </div>
 
 
-<% if current_user?(@note.user) %>
-<%= link_to "編集", edit_note_path(@note.id), class: "btn edit-btn" %>
-<%= link_to "削除", note_path(@note.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
-<% end %>

@@ -22,25 +22,33 @@
   </section>
 
   <section>
-    <span class="label">専攻</span>
-    <h3 class="user-info"><%= @user.major %></h3>
+    <span class="label">出身国</span>
+    <h3 class="user-info"><%= @user.national %></h3>
   </section>
 
   <section>
-    <span class="label">birthday</span>
-    <h3 class="user-info"><%= @user.birthday %></h3>
-  </section>
-
-  <section>
-    <span class="label">University</span>
+    <span class="label">大学</span>
     <h3 class="user-info"><%= @user.university %></h3>
   </section>
 
   <section>
-    <span class="label">National</span>
-    <h3 class="user-info"><%= @user.national %></h3>
+    <span class="label">留学先の国</span>
+    <h3 class="user-info"><%= @user.to_national %></h3>
   </section>
 
+
+　<section>
+    <span class="label">留学先の大学</span>
+    <h3 class="user-info"><%= @user.to_university %></h3>
+  </section>  
+
+  <section>
+    <span class="label">専攻</span>
+    <h3 class="user-info"><%= @user.major %></h3>
+  </section>
+
+
+  
   <%= link_to @user.likes.count, like_notes_user_path(@user.id) %>個の投稿にいいね！しています
 
 

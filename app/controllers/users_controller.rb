@@ -12,6 +12,21 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    file = params[:user][:image]
+    @user.set_image(file)
+
+    if @user.save
+      redirect_to @user, notice: 'ユーザーが保存されました'
+    else
+      render :new
+    end
+  end
 
   def show
     @notes = @user.notes
@@ -58,6 +73,14 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :sex, :major, :birthday, :password, :password_confirmation, :university, :national)
+      params.require(:user).permit(:name, :email, :national, :university, :to_national, :to_university, :major, :password, :password_confirmation)
     end
+
+    def correct_user
+      user = User.find(params[:id])
+      if !current_user?(user)
+        redirect_to root_path, alert: '許可されていないページです'
+      end
+    end
+
 end
