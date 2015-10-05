@@ -38,7 +38,7 @@ class NotesController < ApplicationController
     @note.set_image(file)
 
     if @note.update(note_params)
-      redirect_to @note, notice: 'ユーザー情報が更新されました'
+      redirect_to @note, notice: '投稿が更新されました'
     else
       render :edit
     end
