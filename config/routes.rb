@@ -21,6 +21,8 @@ PEACE::Application.routes.draw do
   
   post 'like/:note_id' => 'likes#like', as: 'like'
   delete 'unlike/:note_id' => 'likes#unlike', as: 'unlike'
+
+  match '/search_index', to: 'users#search_index',     via: 'get'
   
 
   root 'home#top'

@@ -75,6 +75,15 @@ def self.find_for_oauth(auth)
   user
 end
 
+
+def self.search(search)
+    if search
+      User.where(['name Like ?', "%#{search}%"])
+    else
+      User.all
+    end
+  end
+
 private
   def self.get_email(auth)
     email = auth.info.email
