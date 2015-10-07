@@ -3,7 +3,7 @@ class Note < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user
   
-  validates :image, presence: true
+  validates :image, presence: false
   validates :content, presence: true
   validates :user_id, presence: true
  
