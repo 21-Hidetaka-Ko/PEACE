@@ -63,4 +63,11 @@ class NotesController < ApplicationController
     def note_params
       params.require(:note).permit(:content)
     end
+
+    def correct_user
+      note = Note.find(params[:id])
+      if !current_user?(note.user)
+        redirect_to root_path, alert: '許可されていないページです'
+      end
+    end
 end

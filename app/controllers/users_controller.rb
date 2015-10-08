@@ -61,6 +61,16 @@ class UsersController < ApplicationController
     render :show
   end
 
+  
+
+  def search_index
+    @users = User.search(params[:search])
+  end
+
+  def search
+  end
+  
+
   # DELETE /users/1
   # DELETE /users/1.json
   
