@@ -54,6 +54,14 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.search(search)
+    if search
+      User.where(['name Like ?', "%#{search}%"])
+    else
+      User.all
+    end
+  end
+
   private
     def self.get_email(auth)
       email = auth.info.email
@@ -62,39 +70,14 @@ class User < ActiveRecord::Base
     end
 end
 
-def self.find_for_oauth(auth)
-  user = User.where(uid: auth.uid, provider: auth.provider).first
-  unless user
-    user = User.create(
-      uid: auth.uid,
-      provider: auth.provider,
-      name: auth.info.name,
-      email:User.get_email(auth),
-      password: Devise.friendly_token[4, 30])
-  end
-  user
-end
 
 
-def self.search(search)
-    if search
-      User.where(['name Like ?', "%#{search}%"])
-    else
-      User.all
-    end
-  end
-
-private
-  def self.get_email(auth)
-    email = auth.info.email
-    email = "#{auth.provider}-#{auth.uid}@example.com" if email.blank?
-    email
-  end
 
 
-    def create_remember_token
-      self.remember_token = User.encrypt(User.new_remember_token)
-    end
+
+
+
+    
 
 
 
