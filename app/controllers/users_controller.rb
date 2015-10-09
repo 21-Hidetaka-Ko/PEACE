@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user.set_image(file)
 
     if @user.save
-      redirect_to @user, notice: 'ユーザーが保存されました'
+      redirect_to @user
     else
       render :new
     end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     @user.set_image(file)
 
     if @user.update(user_params)
-      redirect_to @user, notice: 'ユーザー情報が更新されました'
+      redirect_to @user
     else
       render :edit
     end
@@ -94,7 +94,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :national, :university, :to_national, :to_university, :major, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :national, :password, :password_confirmation)
     end
 
     def correct_user

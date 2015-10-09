@@ -22,26 +22,6 @@
   </div>
 
   <div class="field">
-    <%= f.label '大学' %><br />
-    <%= f.text_field :university, autofocus: true, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label '留学先の国' %><br />
-    <%= f.text_field :to_national, autofocus: true, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label '留学先の大学' %><br />
-    <%= f.text_field :to_university, autofocus: true, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label '専攻' %><br />
-    <%= f.text_field :major, class: "form-control" %>
-  </div>
-
-  <div class="field">
     <%= f.label 'パスワード' %>
     <% if @minimum_password_length %>
     (<%= @minimum_password_length %> 文字以上)

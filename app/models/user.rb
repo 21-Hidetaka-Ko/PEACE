@@ -30,10 +30,10 @@ class User < ActiveRecord::Base
   
   
   validates :national, presence: true
-  validates :university, presence: true
-  validates :to_national, presence: true
-  validates :to_university, presence: true
-  validates :major, presence: true
+  # validates :university, presence: true
+  # validates :to_national, presence: true
+  # validates :to_university, presence: true
+  # validates :major, presence: true
   #has_secure_password
   validates :password, length: { minimum: 6 }
 
