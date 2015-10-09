@@ -18,6 +18,15 @@ PEACE::Application.routes.draw do
       get :liking_users
     end
   end
+
+  resources :users do
+    member do
+      get :following, :followers
+     end
+    end
+
+  resources :relationships, only: [:create, :destroy]
+  # resources :notes, only: [:create, :destroy]
   
   post 'like/:note_id' => 'likes#like', as: 'like'
   delete 'unlike/:note_id' => 'likes#unlike', as: 'unlike'

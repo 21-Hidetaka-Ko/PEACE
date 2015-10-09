@@ -67,9 +67,20 @@ class UsersController < ApplicationController
     @users = User.search(params[:search])
   end
 
-  def search
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
   end
-  
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
 
   # DELETE /users/1
   # DELETE /users/1.json
