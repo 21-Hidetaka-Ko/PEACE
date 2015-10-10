@@ -1,0 +1,11 @@
+%li
+  = image_for(note.user)
+  %span.user-name
+    = note.user.name
+  %span.content
+    = link_to note.content, note_path(note.id)
+    %div
+      %small
+        = render 'likes/top_like_links', note: note
+        = note.likes.count
+        人がいいね！といっています

@@ -1,0 +1,43 @@
+%p#notice.alert.alert-success= notice
+- provide(:title, @user.name)
+.row
+  %aside.span4
+    %section
+      %h1
+        = @user.name
+    %section
+      = render 'shared/stats'
+  .span8
+    = render 'follow_form' if signed_in?
+    - if current_user?(@user)
+      %section
+        %small= link_to 'プロフィールを編集', edit_user_path(@user)
+    %aside.sidebar
+      %section
+        %span.label プロフィール画像
+        %h3.user-info
+          = image_for(@user)
+      %aside.sidebar
+        %section
+          %span.label ユーザー
+          %h3.user-info= @user.name
+        %section
+          %span.label メールアドレス
+          %h3.user-info= @user.email
+        %section
+          %span.label 出身国
+          %h3.user-info= @user.national
+        %section
+          %span.label 大学
+          %h3.user-info= @user.university
+        %section
+          %span.label 留学先の国
+          %h3.user-info= @user.to_national
+        　
+        %section
+          %span.label 留学先の大学
+          %h3.user-info= @user.to_university
+        %section
+          %span.label 専攻
+          %h3.user-info= @user.major
+        %br/

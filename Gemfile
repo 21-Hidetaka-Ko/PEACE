@@ -15,6 +15,7 @@ gem 'hirb', '0.7.3'
 gem 'devise', '3.5.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'haml-rails'
 
 
 

@@ -1,0 +1,11 @@
+- if user_signed_in?
+  %aside.sidebar
+    = render 'notes/form'
+  %ul.notes
+    %h2 投稿の一覧
+    = render @notes
+- else
+  .top-wrapper
+    .register-wrapper
+      %h1= @message
+      = link_to "新規登録", new_user_registration_path, class: "btn btn-large register-btn"
