@@ -15,8 +15,13 @@
   </aside>
   <div class="span8">
     <%= render 'follow_form' if signed_in? %>
-
-
+<li>
+<% if current_user?(@user) %>
+    <section>
+      <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
+    </section>
+  <% end %>
+</li>
 
 <aside class="sidebar">
   <section>
@@ -62,24 +67,10 @@
     <span class="label">専攻</span>
     <h3 class="user-info"><%= @user.major %></h3>
   </section>
-
-
-  
-  <%= link_to @user.likes.count, like_notes_user_path(@user.id) %>個の投稿にいいね！しています
-
-
-  <% if current_user?(@user) %>
-    <section>
-      <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
-    </section>
-  <% end %>
-
-
-
   <br>
 </aside>
 
-<ul class="notes">
+<!-- <ul class="notes">
   <h2><%= @content %></h2>
   <%= render @notes %>
-</ul>
+</ul> -->
