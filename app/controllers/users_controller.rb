@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user.set_image(file)
 
     if @user.save
-      redirect_to @user, notice: 'ユーザーが保存されました'
+      redirect_to @user
     else
       render :new
     end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     @user.set_image(file)
 
     if @user.update(user_params)
-      redirect_to @user, notice: 'ユーザー情報が更新されました'
+      redirect_to @user
     else
       render :edit
     end
@@ -67,9 +67,20 @@ class UsersController < ApplicationController
     @users = User.search(params[:search])
   end
 
-  def search
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
   end
-  
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
 
   # DELETE /users/1
   # DELETE /users/1.json
@@ -83,7 +94,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :national, :university, :to_national, :to_university, :major, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :national, :password, :password_confirmation)
     end
 
     def correct_user

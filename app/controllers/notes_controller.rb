@@ -21,7 +21,7 @@ class NotesController < ApplicationController
     file = params[:note][:image]
     @note.set_image(file)
     if @note.save
-      redirect_to @note, notice: "投稿が保存されました"
+      redirect_to root_url
     else
       @notes = Note.order(created_at: :desc)
       render 'home/top'
@@ -38,7 +38,7 @@ class NotesController < ApplicationController
     @note.set_image(file)
 
     if @note.update(note_params)
-      redirect_to @note, notice: '投稿が更新されました'
+      redirect_to @note
     else
       render :edit
     end
