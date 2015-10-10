@@ -1,0 +1,37 @@
+!!!
+/[if lt IE 9]
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title PEACE
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header.navbar
+      .container
+        #logo= link_to "PEACE", root_path
+        - if user_signed_in?
+          %ul.header-right
+            %li
+              = form_tag search_index_path, :method => 'get' do
+                %p
+                  = text_field_tag :search, params[:search]
+                  = submit_tag "Search", :name => nil
+            %li= link_to "プロフィール", user_path(current_user), method: :get
+            %li= link_to "message"
+            %li= link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %ul.header-right
+            %li= link_to "新規登録", new_user_registration_path
+            %li= link_to "ログイン", new_user_session_path
+            = link_to image_tag('facebook_login.png'), user_omniauth_authorize_path(:facebook)
+    .container
+      %p#notice.alert.alert-success= notice
+      %p.alert.alert-danger= alert
+      = yield
+    .container
+      %footer.footer
+        .small
+          © 2015 PEACE, Inc.
