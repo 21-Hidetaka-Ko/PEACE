@@ -15,13 +15,13 @@ class LikesController < ApplicationController
 
  def top_like
  	@note = Note.find(params[:note_id])
- 	like = current_user.like.build(note_id: note.id)
+ 	like = current_user.likes.build(note_id: @note.id)
  	like.save
  end
 
  def top_unlike
  	@note = Note.find(params[:note_id])
- 	like = current_user.likes.find_by(note_id: note.id)
+ 	like = current_user.likes.find_by(note_id: @note.id)
  	like.destroy
  end
 end

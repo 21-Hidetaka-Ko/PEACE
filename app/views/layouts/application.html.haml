@@ -20,7 +20,7 @@
                   = text_field_tag :search, params[:search]
                   = submit_tag "Search", :name => nil
             %li= link_to "プロフィール", user_path(current_user), method: :get
-            %li= link_to "message"
+            / %li= link_to "message", 
             %li= link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           %ul.header-right

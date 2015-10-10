@@ -81,6 +81,8 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  
+
 
   # DELETE /users/1
   # DELETE /users/1.json

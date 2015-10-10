@@ -1,2 +1,4 @@
 $('#like-link').html('#{escape_javascript(render("likes/top_like_links", note: @note))}');
-$('#like-count').html('#{note.top_likes.count}');
+$('#like-count').html('#{@note.likes.count}');
+
+
