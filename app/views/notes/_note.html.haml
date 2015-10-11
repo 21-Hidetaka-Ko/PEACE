@@ -6,8 +6,12 @@
     = link_to note.content, note_path(note.id)
     %div
       %small
-        #like-link
+        %span{id: "like-link-#{note.id}"}
           = render 'likes/top_like_links', note: note
-        #like-count
-          = note.likes.count
+        %br
+        %span{id: "like-count-#{note.id}"}
+          = link_to note.likes.count, liking_users_note_path(note.id)
         人がいいね！といっています
+
+
+
