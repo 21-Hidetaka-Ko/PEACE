@@ -2,7 +2,7 @@ class LikesController < ApplicationController
 
  def like
     @note = Note.find(params[:note_id])
-    like = current_user.likes.new(note_id: @note.id)
+    like = current_user.likes.build(note_id: @note.id)
     like.save
  end
 
@@ -15,7 +15,7 @@ class LikesController < ApplicationController
 
  def top_like
  	  @note = Note.find(params[:note_id])
- 	  like = current_user.likes.new(note_id: @note.id)
+ 	  like = current_user.likes.build(note_id: @note.id)
  	  like.save
  end
 
