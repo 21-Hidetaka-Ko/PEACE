@@ -17,6 +17,16 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'haml-rails'
 
+# irbの上位互換pryを使用
+gem 'pry-rails'
+# binding.pryにより、ブレイクポイントを設置
+gem 'pry-byebug'
+
+
+gem 'hirb-unicode'
+
+
+
 
 
 # Use SCSS for stylesheets
