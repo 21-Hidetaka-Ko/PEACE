@@ -20,7 +20,7 @@
                   = text_field_tag :search, params[:search]
                   = submit_tag "Search", :name => nil
             %li= link_to "プロフィール", user_path(current_user), method: :get
-            %li= link_to "Message", "https://www.facebook.com/" 
+            %li= link_to "Message", messages_path , method: :get
             %li= link_to "BLOG", "https://tobitatestudent.wordpress.com/" 
             %li= link_to "ログアウト", destroy_user_session_path, method: :delete
         - else

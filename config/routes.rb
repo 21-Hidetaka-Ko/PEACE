@@ -1,5 +1,7 @@
 PEACE::Application.routes.draw do
   
+  get 'messages/new'
+
   devise_for :users, :controllers => {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
@@ -26,6 +28,7 @@ PEACE::Application.routes.draw do
     end
 
   resources :relationships, only: [:create, :destroy]
+  resources :messages
   # resources :notes, only: [:create, :destroy]
   
   post 'like/:note_id' => 'likes#like', as: 'like'
@@ -34,11 +37,11 @@ PEACE::Application.routes.draw do
   delete 'top_unlike/:note_id' => 'likes#top_unlike', as: 'top_unlike'
 
 
-  match '/search_index', to: 'users#search_index',     via: 'get'
+  match '/search_index', to: 'users#search_index', via: 'get'
   
-
   root 'home#top'
-
+  
+  
   # match '/signup',  to: 'users#new',            via: 'get'
   # match '/signin',  to: 'sessions#new',         via: 'get'
   # match '/signout', to: 'sessions#destroy',     via: 'delete'

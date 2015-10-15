@@ -11,24 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008022453) do
+ActiveRecord::Schema.define(version: 20151015061241) do
 
-  create_table "likes", force: true do |t|
+  create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "note_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "notes", force: true do |t|
+  create_table "messages", force: :cascade do |t|
     t.text     "content"
-    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text     "content"
+    t.string   "image",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
-  create_table "relationships", force: true do |t|
+  create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
     t.datetime "created_at"
@@ -39,26 +45,26 @@ ActiveRecord::Schema.define(version: 20151008022453) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
-  create_table "users", force: true do |t|
-    t.string   "name"
+  create_table "users", force: :cascade do |t|
+    t.string   "name",                limit: 255
     t.text     "email"
     t.integer  "sex"
     t.text     "major"
     t.date     "birthday"
-    t.string   "password"
+    t.string   "password",            limit: 255
     t.text     "university"
-    t.string   "national"
-    t.string   "city"
+    t.string   "national",            limit: 255
+    t.string   "city",                limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.string   "encrypted_password",  default: "", null: false
+    t.string   "password_digest",     limit: 255
+    t.string   "remember_token",      limit: 255
+    t.string   "encrypted_password",  limit: 255, default: "", null: false
     t.datetime "remember_created_at"
-    t.string   "image"
-    t.string   "uid"
-    t.string   "provider"
-    t.string   "to_national"
+    t.string   "image",               limit: 255
+    t.string   "uid",                 limit: 255
+    t.string   "provider",            limit: 255
+    t.string   "to_national",         limit: 255
     t.text     "to_university"
   end
 
