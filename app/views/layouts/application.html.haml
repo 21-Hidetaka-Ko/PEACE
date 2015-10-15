@@ -10,8 +10,9 @@
     = csrf_meta_tags
   %body
     %header.navbar
-      .container
-        #logo= link_to "PEACE", root_path
+      %div.container
+        %div.header-left
+          %a= link_to "PEACE", root_path
         - if user_signed_in?
           %ul.header-right
             %li
@@ -24,15 +25,33 @@
             %li= link_to "BLOG", "https://tobitatestudent.wordpress.com/" 
             %li= link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
-          %ul.header-right
-            %li= link_to "新規登録", new_user_registration_path
-            %li= link_to "ログイン", new_user_session_path
-            = link_to image_tag('facebook_login.png'), user_omniauth_authorize_path(:facebook)
-    .container
-      %p#notice.alert.alert-success= notice
-      %p.alert.alert-danger= alert
-      = yield
-    .container
-      %footer.footer
-        .small
-          © 2015 PEACE, Inc.
+          %div.header-right
+            %a= link_to "ログイン", new_user_session_path
+      %div.top-wrapper
+        %div.container
+          %h1  Let's study abroad
+          %p  PEACEは留学生に特化したSNSサービスです。世界中の留学生と留学生活をシェアしたり、住民票やVISAなどの煩雑な手続きを簡単にします。
+          = link_to "新規登録", new_user_registration_path, class: "btn signup"
+          %p or signup with
+          = link_to "Facebookログイン", user_omniauth_authorize_path(:facebook), class: "btn facebook"
+
+          
+
+
+
+
+    /       %ul.header-right
+    /         %li= link_to "新規登録", new_user_registration_path
+    /         %li= link_to "ログイン", new_user_session_path
+    /         = link_to image_tag('facebook_login.png'), user_omniauth_authorize_path(:facebook)
+    / .container
+    /   %p#notice.alert.alert-success= notice
+    /   %p.alert.alert-danger= alert
+    /   = yield
+    / .container
+    /   %footer.footer
+    /     .small
+    /       © 2015 PEACE, Inc.
+
+
+

@@ -1,151 +1,103 @@
-@import "bootstrap";
-
-/* mixins, variables, etc. */
-
-$grayMediumLight: #eaeaea;
-
-/* universal */
-
-html {
-  overflow-y: scroll;
+body{
+  margin: 0;
 }
 
-body {
-  padding-top: 60px;
+a{
+  text-decoration: none;
 }
 
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
-}
-
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $grayLight;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-
-/* header */
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
+.top-wrapper{
+  padding: 300px 0 300px 0;
+  background-image: url(http://gakusei-susume.com/wp-content/uploads/2015/08/759d87a6ef236b31589badcedac1b062.jpg);
+  background-size: cover;
   color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
+  text-align: center;
 }
 
-/* footer */
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
-  a {
-    color: $gray;
-    &:hover {
-      color: $grayDarker;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 10px;
-    }
-  }
+.container{
+  width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
-.message-top {
-  display: none;
+.top-wrapper h1{
+  opacity: 0.7;
+  font-size: 45px;
+  letter-spacing: 5px;
 }
 
-/* forms */
+.top-wrapper p{
+  opacity: 0.7;
+  font-size: 14px;
+  margin-bottom: 35px;
+}
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
+.signup{
+  background-color: #239b76;
+}
+
+.facebook{
+  background-color: #3b5998;
+  margin-right: 10px;
+}
+
+
+.btn{
+  padding: 8px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+.btn:hover{
+  opacity: 1;
+}
+
+
+
+header{
+  height: 65px;
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  // @include box_sizing;
-}
-
-input {
-  height: auto !important;
+  background-color: rgba(34,49,52,0.9);
+  position :fixed;
+  top: 0;
+  z-index: 10;
 }
 
 
-.stats {
-  overflow: auto;
-  a {
-    float: left;
-    padding: 0 10px;
-    border-left: 1px solid $grayLighter;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: $blue;
-    }
-  }
-  strong {
-    display: block;
-  }
+
+.header-left{
+  float: left;
+  background-color: rgba(255,255,255,0.3);
+  transition: all 0.5s;
 }
 
-.user_avatars {
-  overflow: auto;
-  margin-top: 10px;
-  .gravatar {
-    margin: 1px 1px;
-  }
+.header-right{
+  float: right;
+  background-color: rgba(255,255,255,0.3);
+  transition: all 0.5s;
 }
+
+.facebook{
+  background-color: #3b5998;
+  margin-right: 10px;
+}
+
+.btn{
+  padding: 8px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+.btn:hover{
+  opacity: 1;
+}
+
+.fa{
+  margin-right: 5px;
+}
+
 
