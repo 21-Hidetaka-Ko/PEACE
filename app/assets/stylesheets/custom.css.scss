@@ -50,11 +50,6 @@ a{
   border-radius: 4px;
 }
 
-.btn:hover{
-  opacity: 1;
-}
-
-
 
 header{
   height: 65px;
@@ -68,36 +63,18 @@ header{
 
 
 .header-left{
+  padding: 20px 24px;
   float: left;
   background-color: rgba(255,255,255,0.3);
   transition: all 0.5s;
 }
 
 .header-right{
+  padding: 20px 24px;
   float: right;
   background-color: rgba(255,255,255,0.3);
   transition: all 0.5s;
 }
 
-.facebook{
-  background-color: #3b5998;
-  margin-right: 10px;
-}
-
-.btn{
-  padding: 8px 24px;
-  color: white;
-  display: inline-block;
-  opacity: 0.8;
-  border-radius: 4px;
-}
-
-.btn:hover{
-  opacity: 1;
-}
-
-.fa{
-  margin-right: 5px;
-}
 
 
