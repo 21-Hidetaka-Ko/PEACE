@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 	  	# @note = Note.new
 	  	@notes = Note.all.order(created_at: :desc)
 	  	@note  = current_user.notes.build
-        @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_items = current_user.feed.paginate(page: params[:page])
 	  else
 	  	@message  = "ようこそPEACEへ！"
 	  end

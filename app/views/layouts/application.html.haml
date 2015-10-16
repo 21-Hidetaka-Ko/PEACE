@@ -25,14 +25,7 @@
             %li= link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           = link_to "ログイン", new_user_session_path, class: "header-right"
-      %div.top-wrapper
-        %div.container
-          %h1  Let's study abroad
-          %p  PEACEは留学生に特化したSNSサービスです。世界中の留学生と留学生活をシェアしたり、住民票やVISAなどの煩雑な手続きを簡単にします。
-          = link_to "新規登録", new_user_registration_path, class: "btn signup"
-          %p or signup with
-          = link_to "Facebookログイン", user_omniauth_authorize_path(:facebook), class: "btn facebook"
-
+    =yield
           
 
 
