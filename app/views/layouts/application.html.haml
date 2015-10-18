@@ -9,30 +9,40 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %header.navbar
-      .container
-        #logo= link_to "PEACE", root_path
+    %header
+      %div.container
+        = link_to "PEACE", root_path, class: "header-left"
         - if user_signed_in?
-          %ul.header-right
-            %li
-              = form_tag search_index_path, :method => 'get' do
-                %p
-                  = text_field_tag :search, params[:search]
-                  = submit_tag "Search", :name => nil
-            %li= link_to "プロフィール", user_path(current_user), method: :get
-            %li= link_to "Message", "https://www.facebook.com/" 
-            %li= link_to "BLOG", "https://tobitatestudent.wordpress.com/" 
-            %li= link_to "ログアウト", destroy_user_session_path, method: :delete
+          .header-center
+            = form_tag search_index_path, :method => 'get' do
+              %p
+              = text_field_tag :search, params[:search]
+              = submit_tag "Search", :name => nil
+          .header-right
+            = link_to "プロフィール", user_path(current_user), method: :get
+            = link_to "Message", messages_path , method: :get
+            = link_to "BLOG", "https://tobitatestudent.wordpress.com/" 
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
-          %ul.header-right
-            %li= link_to "新規登録", new_user_registration_path
-            %li= link_to "ログイン", new_user_session_path
-            = link_to image_tag('facebook_login.png'), user_omniauth_authorize_path(:facebook)
-    .container
-      %p#notice.alert.alert-success= notice
-      %p.alert.alert-danger= alert
-      = yield
-    .container
-      %footer.footer
-        .small
-          © 2015 PEACE, Inc.
+          = link_to "ログイン", new_user_session_path, class: "header-right"
+    =yield
+          
+
+
+
+
+    /       %ul.header-right
+    /         %li= link_to "新規登録", new_user_registration_path
+    /         %li= link_to "ログイン", new_user_session_path
+    /         = link_to image_tag('facebook_login.png'), user_omniauth_authorize_path(:facebook)
+    / .container
+    /   %p#notice.alert.alert-success= notice
+    /   %p.alert.alert-danger= alert
+    /   = yield
+    / .container
+    /   %footer.footer
+    /     .small
+    /       © 2015 PEACE, Inc.
+
+
+
