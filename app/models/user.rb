@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :likes
   has_many :like_notes, through: :likes, source: :note
+  has_many :groups_users
   
   
   validates :national, presence: true
