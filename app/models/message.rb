@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
   belongs_to :group
-  validates presence: true
-  validates presence: true
+  validates :content, presence: true
+  validates :content, presence: true
 end
