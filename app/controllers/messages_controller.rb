@@ -4,14 +4,27 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create!(message_params)
+    if Conversation.between(params[:user_id],params[:group_id]).present?
+      @conversation = Conversation.between(params[:user_id],params[:group_id]).first
+    else
+      @conversation = Conversation.create!(conversation_params)
+    end
+
+    render json: { conversation_id: @conversation.id }
+  end
+
+  def show
+    @conversation = Conversation.find(params[:id])
+    @reciever = interlocutor(@conversation)
+    @messages = @conversation.messages
+    @message = Message.new
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:content, :group_id, :user_id)
+    params.require(:message).permit(:group_id, :user_id)
   end
-
   
 end
+
