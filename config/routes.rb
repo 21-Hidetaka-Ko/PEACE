@@ -29,6 +29,7 @@ PEACE::Application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
   resources :messages
+  resources :groups
   # resources :notes, only: [:create, :destroy]
   
   post 'like/:note_id' => 'likes#like', as: 'like'

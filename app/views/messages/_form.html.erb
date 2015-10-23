@@ -1,5 +1,0 @@
-<%= form_for(@user.messages.build, remote: true) do |f| %>
-  <%= f.text_area :content, id: "submit-box", class: "form-control", placeholder: "Your Message", row: "6" %>
-  <%= f.hidden_field :user_id, :group_id %>
-  <button id="submit-button" class="btn btn-flat flat-color" type="submit">送信</button>
-<% end %>
