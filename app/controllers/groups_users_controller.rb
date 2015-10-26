@@ -1,4 +1,4 @@
-class GroupsUserController < ApplicationController
+class GroupsUsersController < ApplicationController
 
   def create
   end

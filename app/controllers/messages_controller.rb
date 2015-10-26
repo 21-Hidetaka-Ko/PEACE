@@ -1,15 +1,23 @@
 class MessagesController < ApplicationController
   def index
-    @messages = Message.all
+    @group = current_user.groups.find(params[:group_id])
+    @messages = @group.messages.order('created_at desc')
   end
 
   def create
     # グループがあればそのgroup_idをいれる
-    @message = Message.create!(message_params)
-    # @message = Group.new
-    @message = Message.find(message_params)
+    @group = current_user.groups.find(params[:group_id])
     @message = Message.new(message_params)
-    @message.save
+    @message.user_id = current_user.id
+    @message.group_id = @group.id
+
+    if @message.save
+      flash.notice = 'Create MES'
+      redirect_to [ @group, :messages ]
+    else
+      flash.now[:alert] = 'ERROR'
+      render action: :index
+    end
   end
 
 
