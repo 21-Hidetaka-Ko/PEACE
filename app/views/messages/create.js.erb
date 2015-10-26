@@ -1,1 +1,4 @@
-$("#new_message")[0].reset(); 
+console.log(200);
+$('#message-list').html("<%= escape_javascript(render(@messages)) %>");
+$('#submit-box').val("");
+$('#submit-button').blur();

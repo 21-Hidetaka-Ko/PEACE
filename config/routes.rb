@@ -24,11 +24,15 @@ PEACE::Application.routes.draw do
   resources :users do
     member do
       get :following, :followers
-     end
     end
+  end
 
   resources :relationships, only: [:create, :destroy]
   resources :messages
+  resources :groups do 
+    resources :messages  
+  end
+
   # resources :notes, only: [:create, :destroy]
   
   post 'like/:note_id' => 'likes#like', as: 'like'

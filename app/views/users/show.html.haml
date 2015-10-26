@@ -40,4 +40,8 @@
         %section
           %span.label 専攻
           %h3.user-info= @user.major
+        %section
+          = form_tag groups_path do 
+            = hidden_field_tag :user_id, @user.id 
+            = submit_tag "このユーザにメッセージする"
         %br/
