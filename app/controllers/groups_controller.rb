@@ -5,5 +5,10 @@ class GroupsController < ApplicationController
     @group.groups_users.create(user: current_user)
     redirect_to [ @group, :messages ]
   end
+
+  def index
+   @groups = Group.all
+  end
+
 end
 
