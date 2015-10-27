@@ -1,5 +1,4 @@
 <div style="margin-top: 100px;">
-<h1>チャット</h1>
 <% @groups.each do |g| %>
-<%= link_to '#{group.id}のメッセージ', group_messages_path(@groups) %>
+<%= link_to "#{group.id}のメッセージ", group_messages_path(@groups) %>
 <% end %>
