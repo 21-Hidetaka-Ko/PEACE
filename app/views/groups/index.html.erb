@@ -1,4 +1,0 @@
-<div style="margin-top: 100px;">
-<% @groups.each do |group| %>
-<%= link_to "#{ group.users.where.not(id: current_user.id).map(&:name).join(',')}のメッセージ", group_messages_path(group.id) %>
-<% end %> 
