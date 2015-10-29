@@ -1,5 +1,7 @@
-%p
+%ul.message_index
   -@groups.each do |group|
-    =link_to "#{ group.users.where.not(id: current_user.id).map(&:name).join(',')}のメッセージ", group_messages_path(group.id) , class: "message_index"
+    %li
+      =link_to "#{ group.users.where.not(id: current_user.id).map(&:name).join(',')}のメッセージ", group_messages_path(group.id)  
+      
 
 
