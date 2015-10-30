@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019023153) do
+ActiveRecord::Schema.define(version: 20151029073809) do
 
   create_table "groups", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20151019023153) do
     t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "read_at"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20151019023153) do
     t.integer  "user_id"
     t.integer  "group_id"
     t.text     "content"
+    t.integer  "readflag"
   end
 
   create_table "notes", force: :cascade do |t|

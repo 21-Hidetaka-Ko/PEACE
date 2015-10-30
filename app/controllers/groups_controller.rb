@@ -13,6 +13,7 @@ class GroupsController < ApplicationController
 
   def index
    @groups = current_user.groups
+   @groups_user = GroupsUser.find_by(user: current_user,group)
   end
 
 end
