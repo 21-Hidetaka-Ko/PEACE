@@ -101,9 +101,11 @@ class User < ActiveRecord::Base
   def same_group_with(user)
     self.groups.select do |group|
       if user.member_of?(group)
+     
         return group
       end
     end
+    return false
   end
 
 

@@ -3,8 +3,10 @@ class MessagesController < ApplicationController
     @group = current_user.groups.find(params[:group_id])
     @messages = @group.messages.order('created_at desc')
     #usersがGroupに行くたびにgroups_userテーブルのread_atをアップデートする
-    @groups_user.update_attribute(:read_at)
-
+    # @groups_user = GroupsUser.where(user_id: current_user.id, group_id: @group.id)
+    @groups_user = current_user.groups_users.find_by(group_id: @group.id)
+    @groups_user.read_at = Time.now
+    @groups_user.save
   end
 
   def create
