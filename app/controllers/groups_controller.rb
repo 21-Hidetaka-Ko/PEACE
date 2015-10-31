@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
       @group = group
     else
       @group = Group.create
+      @groups_users.read_at = Time.now
       @group.groups_users.create(user_id: params[:user_id])
       @group.groups_users.create(user: current_user)
     end
@@ -13,7 +14,7 @@ class GroupsController < ApplicationController
 
   def index
    @groups = current_user.groups
-   @groups_user = GroupsUser.find_by(user: current_user.groups)
+   
   end
 
 end
