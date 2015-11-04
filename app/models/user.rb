@@ -107,6 +107,8 @@ class User < ActiveRecord::Base
     end
     return false
   end
+    
+  
 
 
   private

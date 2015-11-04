@@ -4,15 +4,17 @@
       =link_to "#{ group.users.where.not(id: current_user.id).map(&:name).join(',')}のメッセージ",group_messages_path(group.id)
     %li
       / groupにひもづいたcurrent_userのidをもったgroups_user
-      -# groups_user = GroupsUser.where(user_id: current_user.id, group_id: group.id)
       - groups_user = current_user.groups_users.find_by(group_id: group.id)
       - if !group.messages.where.not(user_id: current_user.id).last
         = link_to "まだメッセージがありません"
-      - elsif groups_user.read_at > group.messages.where.not(user_id: current_user.id).first.created_at
+      - elsif groups_user.read_at > group.messages.where.not(user_id: current_user.id).last.created_at
         = link_to "既読"
       - else 
         = link_to "未読"
-
-      
+%ul.message_center
+  %li
+  - @messages.each do |message| 
+    %p= message.content
+ 
 
 

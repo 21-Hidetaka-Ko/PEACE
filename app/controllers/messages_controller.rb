@@ -17,6 +17,9 @@ class MessagesController < ApplicationController
     @message.group_id = @group.id
 
     if @message.save
+      #groupのupdated_atを更新
+      @group.updated_at = Time.now  
+      @group.save
       flash.notice = 'Create MES'
       redirect_to [ @group, :messages ]
     else
