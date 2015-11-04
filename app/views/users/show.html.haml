@@ -43,6 +43,6 @@
         %section
           = form_tag groups_path do 
             = hidden_field_tag :user_id, @user.id 
-            = submit_tag "このユーザにメッセージする"
+            / = submit_tag "このユーザにメッセージする"
             = link_to '受信箱', groups_path
         %br/

@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
       @group.updated_at = Time.now  
       @group.save
       flash.notice = 'Create MES'
-      redirect_to [ @group, :messages ]
+      redirect_to :back
     else
       flash.now[:alert] = 'ERROR'
       render action: :index

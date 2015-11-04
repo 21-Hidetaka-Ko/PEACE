@@ -5,9 +5,6 @@ class GroupsController < ApplicationController
       @group = group
     else
       @group = Group.create
-      # @groups_users = GroupsUser.new
-      # @groups_users.read_at = Time.now
-
       # group, userに紐付いた@groups_userのインスタンスを生成
       @groups_user = @group.groups_users.build(user_id: params[:user_id])
       @groups_user.read_at = Time.now
@@ -19,8 +16,6 @@ class GroupsController < ApplicationController
       @groups_user = @group.groups_users.build(user_id: current_user.id)
       @groups_user.read_at = Time.now
       @groups_user.save
-
-
       
     end
     redirect_to [ @group, :messages ]
@@ -30,12 +25,10 @@ class GroupsController < ApplicationController
     # @groupsに、current_userが持っているグループをupdated_atの順番で取得
     @groups = current_user.groups.order(updated_at: :desc)
     # updated_atが最新のグループを取得
-    group = @groups.first
+    @group = @groups.first
     # そのグループのメッセージを降順で取得
-    @messages = Message.where(group: group).order(created_at: :desc)
-   
+    @messages = Message.where(group: @group).order(created_at: :desc)
   end
-
 
 
   private
@@ -43,6 +36,8 @@ class GroupsController < ApplicationController
   def message_params
     params.require(:message).permit(:group_id, :user_id)
   end
+
+  
 
 end
 

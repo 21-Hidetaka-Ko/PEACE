@@ -21,7 +21,7 @@
           .header-right
             = link_to "プロフィール", user_path(current_user), method: :get
             = link_to "Message", messages_path , method: :get
-            = link_to "BLOG", "https://tobitatestudent.wordpress.com/" 
+            = link_to "BLOG", "http://tobitate-student.com/" 
             = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           = link_to "ログイン", new_user_session_path, class: "header-right"

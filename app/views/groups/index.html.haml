@@ -15,6 +15,15 @@
   %li
   - @messages.each do |message| 
     %p= message.content
+    %p= "#{ message.user.name}"
+
+
+%div{:style => "margin-top: 100px;"}
+  %h1 チャット
+  = form_tag(group_messages_path(@group), :method => :post) do
+    内容
+    %textarea.form-control.content-field{:name => "message[content]"}
+    %input.btn.primary-btn{:type => "submit", :value => "送信する"}/
  
 
 
