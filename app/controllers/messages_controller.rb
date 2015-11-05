@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
     @groups_user.save
   end
 
+  # ajaxでメッセージを保存
   def create
     # グループがあればそのgroup_idをいれる
     @group = current_user.groups.find(params[:group_id])
@@ -21,7 +22,8 @@ class MessagesController < ApplicationController
       @group.updated_at = Time.now  
       @group.save
       flash.notice = 'Create MES'
-      redirect_to :back
+      # redirect_to :back
+      @messages = Message.where(group_id: @group.id).order('created_at desc')
     else
       flash.now[:alert] = 'ERROR'
       render action: :index
