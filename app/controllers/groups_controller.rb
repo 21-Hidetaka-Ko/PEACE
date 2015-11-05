@@ -30,6 +30,14 @@ class GroupsController < ApplicationController
     @messages = Message.where(group: @group).order(created_at: :desc)
   end
 
+  def move_message
+    
+    @group = Group.where(id: params[:group_id])
+    @messages = Message.where(group: @group).order(created_at: :desc)
+
+  end
+
+
 
   private
 

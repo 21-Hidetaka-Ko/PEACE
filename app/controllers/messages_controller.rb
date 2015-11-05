@@ -22,7 +22,6 @@ class MessagesController < ApplicationController
       @group.updated_at = Time.now  
       @group.save
       flash.notice = 'Create MES'
-      # redirect_to :back
       @messages = Message.where(group_id: @group.id).order('created_at desc')
     else
       flash.now[:alert] = 'ERROR'

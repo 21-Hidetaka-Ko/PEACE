@@ -29,9 +29,11 @@ PEACE::Application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
   resources :messages
-  resources :groups do 
+  resources :groups, only:[:create, :index] do 
     resources :messages  
   end
+
+  get '/groups/:group_id' => 'groups#move_message', as:'group_move'
 
   # resources :notes, only: [:create, :destroy]
   

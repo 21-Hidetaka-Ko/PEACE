@@ -1,9 +1,9 @@
-%div{:style => "margin-top: 100px;"}
-  %h1 チャット
-  = form_tag url: [ @group, :messages ] do
-    内容
-    %textarea.form-control.content-field{:name => "message[content]"}
-    %input.btn.primary-btn{:type => "submit", :value => "送信する"}/
-- @messages.each do |m|
-  %p= m.content
+/ %div{:style => "margin-top: 100px;"}
+/   %h1 チャット
+/   = form_tag url: [ @group, :messages ] do
+/     内容
+/     %textarea.form-control.content-field{:name => "message[content]"}
+/     %input.btn.primary-btn{:type => "submit", :value => "送信する"}/
+/ - @messages.each do |m|
+/   %p= m.content
  
