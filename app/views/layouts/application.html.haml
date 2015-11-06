@@ -1,6 +1,6 @@
 
 /[if lt IE 9]
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+!!! 5
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
@@ -8,23 +8,32 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    %link{:href => "css/bootstrap.min.css", :media => "screen", :rel => "stylesheet"}/
   %body
-    %header
+    %header.navbar.navbar-fixed-top.navbar-inverse
       %div.container
         = link_to "PEACE", root_path, class: "header-left"
+        %nav
         - if user_signed_in?
-          .header-center
+          %nav
+            %ul.nav.pull-center
             = form_tag search_index_path, :method => 'get' do
-              %p
+              %a
               = text_field_tag :search, params[:search]
               = submit_tag "Search", :name => nil
-          .header-right
-            = link_to "プロフィール", user_path(current_user), method: :get
-            = link_to "Message", messages_path , method: :get
-            = link_to "BLOG", "http://tobitate-student.com/" 
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
+            %ul.nav.pull-right
+              %a= link_to "プロフィール", user_path(current_user), method: :get
+              %a= link_to "Message", groups_path , method: :get
+              %a= link_to "BLOG", "http://tobitate-student.com/" 
+              %a= link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
-          = link_to "ログイン", new_user_session_path, class: "header-right"
+          %nav
+            %ul.nav.pull-right
+              %a= link_to "BLOG", "http://tobitate-student.com/"
+              %a= link_to "ログイン", new_user_session_path
+    %script{:src => "http://code.jquery.com/jquery.js"}
+    %script{:src => "js/bootstrap.min.js"}
+  .container
     =yield
           
 

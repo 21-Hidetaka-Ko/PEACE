@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029073809) do
+ActiveRecord::Schema.define(version: 20151106135347) do
 
   create_table "groups", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -82,6 +82,9 @@ ActiveRecord::Schema.define(version: 20151029073809) do
     t.string   "provider",            limit: 255
     t.string   "to_national",         limit: 255
     t.text     "to_university"
+    t.string   "user_past"
+    t.string   "user_why"
+    t.string   "user_finish"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

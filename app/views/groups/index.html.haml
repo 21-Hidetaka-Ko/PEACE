@@ -1,24 +1,21 @@
-%ul.message_index
+%div.sidebar
+  %ul
   -@groups.each do |group|
-    %li
-      =link_to "#{ group.users.where.not(id: current_user.id).map(&:name).join(',')}のメッセージ", group_move_path(group.id), remote: true
-    %li
-      / groupにひもづいたcurrent_userのidをもったgroups_user
+    %p
+      =link_to "#{ group.users.where.not(id: current_user.id).map(&:name).join(',')}", group_move_path(group.id), remote: true
       - groups_user = current_user.groups_users.find_by(group_id: group.id)
       - if !group.messages.where.not(user_id: current_user.id).last
-        = link_to "まだメッセージがありません"
+        %a="(まだメッセージがありません)"
       - elsif groups_user.read_at > group.messages.where.not(user_id: current_user.id).last.created_at
-        = link_to "既読"
+        %a="(既読)"
       - else 
-        = link_to "未読"
+        %a="(未読)"
 %ul.message_center
   %li#message_name
     = render @messages
 
 %div{:style => "margin-top: 100px;"}
-  %h1 チャット
   = form_tag(group_messages_path(@group), :method => :post, remote: true) do
-    内容
     %textarea.form-control.content-field{:name => "message[content]"}
     %input.btn.primary-btn{:type => "submit", :value => "送信する"}/
  

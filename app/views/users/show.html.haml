@@ -1,48 +1,26 @@
-%p#notice.alert.alert-success= notice
-- provide(:title, @user.name)
-.row
-  %aside.span4
-    %section
-      %h1
-        = @user.name
-    %section
-      = render 'shared/stats'
-  .span8
-    = render 'follow_form' if signed_in?
-    - if current_user?(@user)
-      %section
-        %small= link_to 'プロフィールを編集', edit_user_path(@user)
-    %aside.sidebar
-      %section
-        %span.label プロフィール画像
-        %h3.user-info
-          = image_for(@user)
-      %aside.sidebar
-        %section
-          %span.label ユーザー
-          %h3.user-info= @user.name
-        %section
-          %span.label メールアドレス
-          %h3.user-info= @user.email
-        %section
-          %span.label 出身国
-          %h3.user-info= @user.national
-        %section
-          %span.label 大学
-          %h3.user-info= @user.university
-        %section
-          %span.label 留学先の国
-          %h3.user-info= @user.to_national
-        　
-        %section
-          %span.label 留学先の大学
-          %h3.user-info= @user.to_university
-        %section
-          %span.label 専攻
-          %h3.user-info= @user.major
-        %section
-          = form_tag groups_path do 
-            = hidden_field_tag :user_id, @user.id 
-            / = submit_tag "このユーザにメッセージする"
-            = link_to '受信箱', groups_path
-        %br/
+- if current_user?(@user)
+  %li= link_to 'プロフィールを編集', edit_user_path(@user)
+  %section.user-introduction-section.user-profile-section  
+    %h4="出身国"
+    %p= @user.national 
+    %h4="大学" 
+    %p= @user.university 
+    %h4="留学先の国"
+    %p= @user.to_national
+    %h4="留学先の大学" 
+    %p= @user.to_university
+    %h4="専攻"
+    %p= @user.major
+    %h4="留学した経緯"
+    %p= @user.user_past
+    %h4="留学してどうなりたいか"
+    %p= @user.user_why
+    %h4="留学を終えて"
+    %p= @user.user_finish
+    %h4="成果物"
+    = form_tag groups_path do 
+      = hidden_field_tag :user_id, @user.id 
+      = link_to '話を聞いてみたい', groups_path, class: "btn facebook"
+        
+      
+      

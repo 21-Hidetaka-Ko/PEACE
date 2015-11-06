@@ -1,9 +1,8 @@
-/ %li
-/   %span.created_at
-/     = message.user_id
-/     = message.content
-%p= message.content
-%p= "#{ message.user.name}"
+%p.name_color
+  = "#{ message.user.name}"
+%p
+  = message.content
+
 
 
 

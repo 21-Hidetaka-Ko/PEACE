@@ -8,19 +8,25 @@
         - @user.errors.full_messages.each do |msg|
           %li= msg
   名前
-  = f.text_field :name, class: "form-control name-field"
+  %p= f.text_field :name, class: "form-control name-field"
   メールアドレス
-  = f.text_field :email, class: "form-control email-field"
+  %p= f.hidden_field :email, class: "form-control email-field"
   出身国
-  = f.text_field :national, class: "form-control national-field"
-  大学
-  = f.text_field :university, class: "form-control university-field"
+  %p= f.text_field :national, class: "form-control national-field"
+  出身大学
+  %p= f.text_field :university, class: "form-control university-field"
   留学先の国
-  = f.text_field :to_national, class: "form-control university-field"
+  %p= f.text_field :to_national, class: "form-control university-field"
   留学先の大学
-  = f.text_field :to_university, class: "form-control university-field"
+  %p= f.text_field :to_university, class: "form-control university-field"
   専攻
-  = f.text_field :major, class: "form-control major-field"
+  %p= f.text_field :major, class: "form-control major-field"
+  留学した経緯
+  %p= f.text_field :user_past, class: "form-control major-field"
+  留学してどうなりたいか
+  %p= f.text_field :user_why, class: "form-control major-field"
+  留学を終えて
+  %p= f.text_field :user_finish, class: "form-control major-field"
   password
-  = f.text_field :password, class: "form-control password-field"
-  = f.submit '保存', class: "btn primary-btn"
+  %p= f.text_field :password, class: "form-control password-field"
+  %p= f.submit '保存', class: "btn primary-btn"
