@@ -94,6 +94,23 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  def member_of?(group)
+    self.groups.find_by(id: group.id)
+  end
+
+  def same_group_with(user)
+    self.groups.select do |group|
+      if user.member_of?(group)
+     
+        return group
+      end
+    end
+    return false
+  end
+    
+  
+
+
   private
     def self.get_email(auth)
       email = auth.info.email

@@ -7,8 +7,6 @@
       %ul
         - @note.errors.full_messages.each do |message|
           %li= message
-  画像
   \#{f.file_field :image, { class: "form-control image-field" }}
-  内容
   \#{f.text_area :content, { class: "form-control content-field" }}
   \#{f.submit "投稿", { class: "btn primary-btn" }}
