@@ -18,7 +18,8 @@ class GroupsController < ApplicationController
       @groups_user.save
       
     end
-    redirect_to [ @group, :messages ]
+    redirect_to groups_path
+    # [ @group, :messages ]
   end
 
   def index

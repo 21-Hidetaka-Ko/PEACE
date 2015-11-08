@@ -2,56 +2,33 @@
 /[if lt IE 9]
 !!! 5
 %html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title PEACE
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-    %link{:href => "css/bootstrap.min.css", :media => "screen", :rel => "stylesheet"}/
-  %body
-    %header.navbar.navbar-fixed-top.navbar-inverse
-      %div.container
-        = link_to "PEACE", root_path, class: "header-left"
-        %nav
-        - if user_signed_in?
-          %nav
-            %ul.nav.pull-center
-            = form_tag search_index_path, :method => 'get' do
-              %a
-              = text_field_tag :search, params[:search]
-              = submit_tag "Search", :name => nil
-            %ul.nav.pull-right
-              %a= link_to "プロフィール", user_path(current_user), method: :get
-              %a= link_to "Message", groups_path , method: :get
-              %a= link_to "BLOG", "http://tobitate-student.com/" 
-              %a= link_to "ログアウト", destroy_user_session_path, method: :delete
-        - else
-          %nav
-            %ul.nav.pull-right
-              %a= link_to "BLOG", "http://tobitate-student.com/"
-              %a= link_to "ログイン", new_user_session_path
-    %script{:src => "http://code.jquery.com/jquery.js"}
-    %script{:src => "js/bootstrap.min.js"}
-  .container
-    =yield
+%head
+  %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %title PEACE
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+  %link{:href => "css/bootstrap.min.css", :media => "screen", :rel => "stylesheet"}/
+%body
+  %div.header
+    %div.header-left= link_to "PEACE", root_path
+    %a= link_to "BLOG", "http://tobitate-student.com/", class: "header-right"
+    - if user_signed_in?
+      %a= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-right"
+      %a= link_to "プロフィール", user_path(current_user), method: :get, class: "header-right"
+      %a= link_to "Message", groups_path , method: :get, class: "header-right"
+      %a= link_to "留学生を探す", users_path, method: :get, class: "header-right"
+    - else
+  %script{:src => "http://code.jquery.com/jquery.js"}
+  %script{:src => "js/bootstrap.min.js"}
+=yield
           
 
 
 
-
-    /       %ul.header-right
-    /         %li= link_to "新規登録", new_user_registration_path
-    /         %li= link_to "ログイン", new_user_session_path
-    /         = link_to image_tag('facebook_login.png'), user_omniauth_authorize_path(:facebook)
-    / .container
-    /   %p#notice.alert.alert-success= notice
-    /   %p.alert.alert-danger= alert
-    /   = yield
-    / .container
-    /   %footer.footer
-    /     .small
-    /       © 2015 PEACE, Inc.
-
-
+/ = form_tag search_index_path, :method => 'get' do
+/       %a
+/       = text_field_tag :search, params[:search]
+/       = submit_tag "Search", :name => nil
+   
 

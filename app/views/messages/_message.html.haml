@@ -1,5 +1,6 @@
 %p.name_color
-  = "#{ message.user.name}"
+  - if message.user
+    = link_to "#{ message.user.name}"
 %p
   = message.content
 

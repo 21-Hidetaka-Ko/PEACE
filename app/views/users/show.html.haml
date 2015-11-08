@@ -20,7 +20,7 @@
     %h4="成果物"
     = form_tag groups_path do 
       = hidden_field_tag :user_id, @user.id 
-      = link_to '話を聞いてみたい', groups_path, class: "btn facebook"
+      = submit_tag '話を聞いてみたい', class: "btn facebook"
         
       
       

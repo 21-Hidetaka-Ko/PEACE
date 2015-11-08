@@ -34,6 +34,8 @@ PEACE::Application.routes.draw do
   end
 
   get '/groups/:group_id' => 'groups#move_message', as:'group_move'
+  get '/search_index' => 'users#search_index', as:'search'
+
 
   # resources :notes, only: [:create, :destroy]
   

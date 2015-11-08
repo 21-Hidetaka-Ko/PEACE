@@ -1,3 +1,7 @@
 %h1.heading ユーザー一覧
+= form_tag search_index_path, :method => 'get' do
+  %a
+  = text_field_tag :search, params[:search]
+  = submit_tag "Search", :name => nil
 %ul.user-list
   = render @users
