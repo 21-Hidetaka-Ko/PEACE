@@ -12,7 +12,7 @@
 %body
   %div.header
     %div.header-left= link_to "PEACE", root_path
-    %a= link_to "BLOG", "http://tobitate-student.com/", class: "header-right"
+    %a= link_to "Blog", "http://tobitate-student.com/", class: "header-right"
     - if user_signed_in?
       %a= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-right"
       %a= link_to "プロフィール", user_path(current_user), method: :get, class: "header-right"
@@ -23,12 +23,3 @@
   %script{:src => "js/bootstrap.min.js"}
 =yield
           
-
-
-
-/ = form_tag search_index_path, :method => 'get' do
-/       %a
-/       = text_field_tag :search, params[:search]
-/       = submit_tag "Search", :name => nil
-   
-

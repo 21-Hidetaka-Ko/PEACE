@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   def index
     @group = current_user.groups.find(params[:group_id])
-    @messages = @group.messages.order('created_at desc')
+    @messages = @group.messages.order(:created_at)
     #usersがGroupに行くたびにgroups_userテーブルのread_atをアップデートする
     # @groups_user = GroupsUser.where(user_id: current_user.id, group_id: @group.id)
     @groups_user = current_user.groups_users.find_by(group_id: @group.id)
@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
       @group.updated_at = Time.now  
       @group.save
       flash.notice = 'Create MES'
-      @messages = Message.where(group_id: @group.id).order('created_at desc')
+      @messages = Message.where(group_id: @group.id).order(:created_at)
     else
       flash.now[:alert] = 'ERROR'
       render action: :index

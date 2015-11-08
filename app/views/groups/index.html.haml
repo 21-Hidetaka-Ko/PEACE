@@ -10,14 +10,11 @@
         %a="(既読)"
       - else 
         %a="(未読)"
-%ul.message_center
-  %li#message_name
-    = render @messages
+    %ul.message_center
+      %li#message_name
+        = render @messages
 
-%div{:style => "margin-top: 100px;"}
-  = form_tag(group_messages_path(@group), :method => :post, remote: true) do
-    %textarea.form-control.content-field{:name => "message[content]"}
-    %input.btn.primary-btn{:type => "submit", :value => "送信する"}/
- 
+
+    = render 'form'
 
 
