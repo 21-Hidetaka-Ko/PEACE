@@ -3,15 +3,10 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :set_user, only: [:show, :edit, :update, :destroy, :like_notes]
 
-
-  # GET /users
-  # GET /users.json
   def index
     @users = User.all
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def new
     @user = User.new
   end
@@ -34,22 +29,17 @@ class UsersController < ApplicationController
   end
 
 
-  # GET /users/new
-
-  # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.json
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
-    file = params[:note][:image]
-    @user.set_image(file)
+    file = params[:note]
+     # [:image]
+    # @user.set_image(file)
 
     if @user.update(user_params)
-      redirect_to @user
+      redirect_to user_path, notice: "編集されました"
     else
       render :edit
     end
@@ -96,7 +86,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :national, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :national, :university, :to_national, :to_university, :major, :user_past, :user_why, :user_finish, :password, :password_confirmation)
     end
 
     def correct_user

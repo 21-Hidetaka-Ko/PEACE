@@ -1,3 +1,7 @@
-%h1.heading ユーザー一覧
+%h1.heading 世界中の留学生  
+= form_tag search_index_path, :method => 'get' do
+  %a
+  = text_field_tag :search, params[:search]
+  = submit_tag "Search", :name => nil
 %ul.user-list
   = render @users

@@ -1,2 +1,4 @@
 // 〜のメッセージをクリックしたらグループの一覧が切り替わるようにする   
 $('#message_name').html('<%= escape_javascript(render(@messages)) %>');
+
+$('#form_send').html('<%= escape_javascript(render('groups/form')) %>');

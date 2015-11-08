@@ -18,7 +18,8 @@ class GroupsController < ApplicationController
       @groups_user.save
       
     end
-    redirect_to [ @group, :messages ]
+    redirect_to groups_path
+    # [ @group, :messages ]
   end
 
   def index
@@ -32,7 +33,7 @@ class GroupsController < ApplicationController
 
   def move_message
     
-    @group = Group.where(id: params[:group_id])
+    @group = Group.find_by(id: params[:group_id])
     @messages = Message.where(group: @group).order(created_at: :desc)
 
   end
