@@ -10,9 +10,10 @@
         %a="(既読)"
       - else 
         %a="(未読)"
-    %ul.message_center
-      %li#message_name
-        = render @messages
+%div.contents
+  - if @groups.count != 0
+    %li#message_name
+      = render @messages
 
 
     = render 'form'
