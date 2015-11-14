@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106135347) do
+ActiveRecord::Schema.define(version: 20151112123934) do
 
   create_table "groups", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -62,29 +62,34 @@ ActiveRecord::Schema.define(version: 20151106135347) do
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                limit: 255
+    t.string   "name",                 limit: 255
     t.text     "email"
     t.integer  "sex"
     t.text     "major"
     t.date     "birthday"
-    t.string   "password",            limit: 255
+    t.string   "password",             limit: 255
     t.text     "university"
-    t.string   "national",            limit: 255
-    t.string   "city",                limit: 255
+    t.string   "national",             limit: 255
+    t.string   "city",                 limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest",     limit: 255
-    t.string   "remember_token",      limit: 255
-    t.string   "encrypted_password",  limit: 255, default: "", null: false
+    t.string   "password_digest",      limit: 255
+    t.string   "remember_token",       limit: 255
+    t.string   "encrypted_password",   limit: 255, default: "", null: false
     t.datetime "remember_created_at"
-    t.string   "image",               limit: 255
-    t.string   "uid",                 limit: 255
-    t.string   "provider",            limit: 255
-    t.string   "to_national",         limit: 255
+    t.string   "image",                limit: 255
+    t.string   "uid",                  limit: 255
+    t.string   "provider",             limit: 255
+    t.string   "to_national",          limit: 255
     t.text     "to_university"
     t.string   "user_past"
     t.string   "user_why"
     t.string   "user_finish"
+    t.string   "confirmable"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

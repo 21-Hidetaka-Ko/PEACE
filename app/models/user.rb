@@ -12,9 +12,12 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower  
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :rememberable, :validatable,:omniauthable
+         :rememberable, :validatable,:omniauthable,:confirmable 
+
+
+  
 
   has_many :notes
   before_save { self.email = email.downcase }

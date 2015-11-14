@@ -11,19 +11,24 @@ gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'hirb', '0.7.3'
+# gem 'hirb', '0.7.3'
 gem 'devise', '3.5.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'haml-rails'
 
-# irbの上位互換pryを使用
-gem 'pry-rails'
-# binding.pryにより、ブレイクポイントを設置
+# # irbの上位互換pryを使用
+# gem 'pry-rails'
+# # binding.pryにより、ブレイクポイントを設置
+# gem 'pry-byebug'
+
+
+gem 'pry'
+gem 'pry-remote'
 gem 'pry-byebug'
+gem 'pry-rails'
 
-
-gem 'hirb-unicode'
+# gem 'hirb-unicode'
 gem 'therubyracer' # javascript runtime。lessをコンパイルするために必要
 gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで書かれているため
 gem 'twitter-bootstrap-rails' # Bootstrapの本体

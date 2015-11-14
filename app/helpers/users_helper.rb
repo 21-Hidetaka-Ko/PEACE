@@ -1,7 +1,7 @@
 module UsersHelper
 
   def image_for(user)
-    if user.image
+    if user
       image_tag "/user_images/#{user.image}"
     else
       image_tag "wanko.png"
