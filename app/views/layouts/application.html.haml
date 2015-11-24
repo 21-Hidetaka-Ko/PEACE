@@ -21,18 +21,19 @@
       %a= link_to "Message", groups_path , method: :get, class: "header-right"
       %a= link_to "留学生を探す", users_path, method: :get, class: "header-right"
     - else
-      %div#login-show.login.header-right ログイン
-  %div#login-modal.login-modal-wrapper
-    %div.modal
-      %div.close-modal
-        %i.fa.fa-2x.fa-times
-      %div#login-form
-      %h2 Emailログイン
-      %form{:action => "#"}
-        %input.form-control{:placeholder => "メールアドレス", :type => "text"}/
-        %input.form-control{:placeholder => "パスワード", :type => "password"}/
-        #submit-btn ログイン
-  %script{:src => "script.js"}
-  %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"}
+      = link_to "ログイン", new_user_session_path, class: "header-right"
 =yield
           
+/ %div#login-show.login.header-right ログイン
+/   %div#login-modal.login-modal-wrapper
+/     %div.modal
+/       %div.close-modal
+/         %i.fa.fa-2x.fa-times
+/       %div#login-form
+/       %h2 Emailログイン
+/       %form{:action => "#"}
+/         %input.form-control{:placeholder => "メールアドレス", :type => "text"}/
+/         %input.form-control{:placeholder => "パスワード", :type => "password"}/
+/         #submit-btn ログイン
+/   %script{:src => "script.js"}
+/   %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"}

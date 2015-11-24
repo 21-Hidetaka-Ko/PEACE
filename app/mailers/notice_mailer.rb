@@ -10,6 +10,6 @@ class NoticeMailer < ActionMailer::Base
   def sendmail_confirm
     @greeting = "Hi"
 
-    mail to: "hidetaka.48691001@icloud.com", subject: "ActionMailer test"
+    mail to: "hidetaka.48691001@icloud.comu", subject: "ActionMailer test"
   end
 end

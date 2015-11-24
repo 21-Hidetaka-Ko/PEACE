@@ -85,11 +85,11 @@ ActiveRecord::Schema.define(version: 20151112123934) do
     t.string   "user_past"
     t.string   "user_why"
     t.string   "user_finish"
-    t.string   "confirmable"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
+    # t.string   "confirmable"
+    # t.string   "confirmation_token"
+    # t.datetime "confirmed_at"
+    # t.datetime "confirmation_sent_at"
+    # t.string   "unconfirmed_email"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

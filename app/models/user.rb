@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower  
 
   # Include default devise modules. Others available are:
-   # :lockable, :timeoutable and :omniauthable
+   # :confirmable :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :rememberable, :validatable,:omniauthable,:confirmable 
+         :rememberable, :validatable,:omniauthable
 
 
   

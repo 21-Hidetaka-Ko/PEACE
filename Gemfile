@@ -10,7 +10,8 @@ gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'mysql2'
 # gem 'hirb', '0.7.3'
 gem 'devise', '3.5.1'
 gem 'omniauth'
@@ -33,6 +34,9 @@ gem 'therubyracer' # javascript runtime。lessをコンパイルするために�
 gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで書かれているため
 gem 'twitter-bootstrap-rails' # Bootstrapの本体
 gem 'unicorn'
+
+
+
 
 
 
