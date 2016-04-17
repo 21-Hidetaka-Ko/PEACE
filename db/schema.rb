@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(version: 20151106135347) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "from_user_id"
     t.integer  "user_id"
     t.integer  "group_id"
     t.text     "content"
@@ -44,7 +45,7 @@ ActiveRecord::Schema.define(version: 20151106135347) do
 
   create_table "notes", force: :cascade do |t|
     t.text     "content"
-    t.string   "image",      limit: 255
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -62,25 +63,22 @@ ActiveRecord::Schema.define(version: 20151106135347) do
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                limit: 255
+    t.string   "name"
     t.text     "email"
-    t.integer  "sex"
-    t.text     "major"
-    t.date     "birthday"
-    t.string   "password",            limit: 255
+    t.string   "national"
     t.text     "university"
-    t.string   "national",            limit: 255
-    t.string   "city",                limit: 255
+    t.text     "major"
+    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest",     limit: 255
-    t.string   "remember_token",      limit: 255
-    t.string   "encrypted_password",  limit: 255, default: "", null: false
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.string   "encrypted_password",  default: "", null: false
     t.datetime "remember_created_at"
-    t.string   "image",               limit: 255
-    t.string   "uid",                 limit: 255
-    t.string   "provider",            limit: 255
-    t.string   "to_national",         limit: 255
+    t.string   "image"
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "to_national"
     t.text     "to_university"
     t.string   "user_past"
     t.string   "user_why"
